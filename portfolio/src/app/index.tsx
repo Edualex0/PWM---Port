@@ -1,7 +1,8 @@
+import * as React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
 
-export default function Home(): JSX.Element {
+export default function Home(): React.JSX.Element {
   return (
     <View style={styles.container}>
       <Image source={require('../../assets/images/foto.jpg')} style={styles.image} />
