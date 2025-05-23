@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function Sobre(): React.JSX.Element {
@@ -5,7 +6,9 @@ export default function Sobre(): React.JSX.Element {
     <View style={styles.container}>
       <Text style={styles.title}>Sobre Eduardo Rocha</Text>
       <Text style={styles.text}>
-        Desenvolvedor apaixonado por tecnologia e inovação, com foco em soluções mobile e web.
+        Estudante do 5º período de Ciência da Computação, apaixonado por tecnologia e inovação.{"\n\n"}
+        Já estagiei em um colégio municipal, ensinando crianças sobre robótica.{"\n\n"}
+        Atualmente trabalho numa corretora de seguros, fazendo manutenção nos computadores e auxiliando outros colaboradores com problemas técnicos.
       </Text>
     </View>
   );
@@ -20,9 +23,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 12,
   },
   text: {
     fontSize: 16,
+    lineHeight: 24,
   },
 });

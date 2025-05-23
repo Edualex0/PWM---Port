@@ -6,13 +6,22 @@ export default function Contato(): React.JSX.Element {
     Linking.openURL('mailto:eduardo.rocha@email.com');
   };
 
+  const abrirGithub = () => {
+    Linking.openURL('https://github.com/Edualex0');
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Contato</Text>
-      <Text style={styles.text}>Entre em contato por e-mail:</Text>
 
+      <Text style={styles.text}>Entre em contato por e-mail:</Text>
       <TouchableOpacity onPress={abrirEmail}>
-        <Text style={styles.email}>eduardoalxdrocha@email.com</Text>
+        <Text style={styles.link}>eduardo.rocha@email.com</Text>
+      </TouchableOpacity>
+
+      <Text style={[styles.text, { marginTop: 24 }]}>Ou acesse meu GitHub:</Text>
+      <TouchableOpacity onPress={abrirGithub}>
+        <Text style={styles.link}>github.com/Edualex0</Text>
       </TouchableOpacity>
     </View>
   );
@@ -32,7 +41,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
   },
-  email: {
+  link: {
     marginTop: 8,
     fontSize: 16,
     color: '#007AFF',
