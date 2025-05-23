@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 
 export default function Home(): React.JSX.Element {
@@ -14,14 +14,22 @@ export default function Home(): React.JSX.Element {
             <Text style={styles.navText}>Sobre</Text>
           </TouchableOpacity>
         </Link>
+
         <Link href="/projetos" asChild>
           <TouchableOpacity style={styles.navButton}>
             <Text style={styles.navText}>Projetos</Text>
           </TouchableOpacity>
         </Link>
+
         <Link href="/contato" asChild>
           <TouchableOpacity style={styles.navButton}>
             <Text style={styles.navText}>Contato</Text>
+          </TouchableOpacity>
+        </Link>
+
+        <Link href="/jogo" asChild>
+          <TouchableOpacity style={styles.navButton}>
+            <Text style={styles.navText}>Jogo</Text>
           </TouchableOpacity>
         </Link>
       </View>
@@ -32,7 +40,7 @@ export default function Home(): React.JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 80,
+    padding: 24,
     alignItems: 'center',
     backgroundColor: '#fff',
   },
@@ -40,25 +48,29 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 75,
-    marginBottom: 20,
+    marginBottom: 16,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 32,
+    textAlign: 'center',
   },
   nav: {
-    flexDirection: 'row',
-    gap: 20,
+    gap: 12,
+    alignItems: 'center',
   },
   navButton: {
     backgroundColor: '#007AFF',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    minWidth: 180,
+    alignItems: 'center',
   },
   navText: {
     color: '#fff',
     fontSize: 16,
+    fontWeight: '500',
   },
 });
