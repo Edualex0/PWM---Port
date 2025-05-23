@@ -12,9 +12,10 @@ export default function Projetos(): React.JSX.Element {
       </TouchableOpacity>
 
       <Text style={styles.title}>Projetos</Text>
-      <Text style={styles.item}>• Sistema de Irrigação Automatizado com Arduino</Text>
-      <Text style={styles.item}>• Aplicativo de Portfólio em React Native</Text>
-      <Text style={styles.item}>• Website Pessoal com HTML, CSS e JS</Text>
+      <Text style={styles.item}>• Sistema de Irrigação Automatizado com Arduino.</Text>
+      <Text style={styles.item}>• Aplicativo de Portfólio em React Native.</Text>
+      <Text style={styles.item}>• Website Pessoal com HTML, CSS e JS.</Text>
+      <Text style={styles.item}>• Desenvolvimento de um Banco de Dados para a empresa em que trabalho.</Text>
     </View>
   );
 }
@@ -23,11 +24,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    backgroundColor: '#fff',
+    backgroundColor: '#2E2E2E',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   backButton: {
-    marginBottom: 16,
-    alignSelf: 'flex-start',
+    position: 'absolute',
+    top: 24,
+    left: 24,
     paddingHorizontal: 12,
     paddingVertical: 8,
     backgroundColor: '#ccc',
@@ -38,12 +42,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   title: {
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 12,
+    marginBottom: 24,
+    color: '#fff',
+    textAlign: 'center',
   },
   item: {
-    fontSize: 16,
-    marginBottom: 8,
+    fontSize: 18,
+    marginBottom: 12,
+    color: '#fff',
+    textAlign: 'center',
   },
 });
