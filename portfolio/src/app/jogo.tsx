@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 
 export default function Jogo(): React.JSX.Element {
   const [palpite, setPalpite] = React.useState('');
   const [historico, setHistorico] = React.useState<string[]>([]);
   const [numeroSecreto, setNumeroSecreto] = React.useState(gerarNumeroSecreto());
+  const [venceu, setVenceu] = React.useState(false);
   const router = useRouter();
 
   function gerarNumeroSecreto(): string {
@@ -18,8 +19,7 @@ export default function Jogo(): React.JSX.Element {
 
   function verificarPalpite() {
     if (palpite.length !== 4 || new Set(palpite).size !== 4 || !/^\d+$/.test(palpite)) {
-      Alert.alert('Palpite inválido', 'Digite 4 dígitos diferentes.');
-      return;
+      return alert('Palpite inválido. Digite 4 dígitos diferentes.');
     }
 
     let bulls = 0;
@@ -37,9 +37,7 @@ export default function Jogo(): React.JSX.Element {
     setHistorico([resultado, ...historico]);
 
     if (bulls === 4) {
-      Alert.alert('Parabéns!', 'Você adivinhou o número!', [
-        { text: 'Jogar Novamente', onPress: reiniciarJogo },
-      ]);
+      setVenceu(true);
     }
 
     setPalpite('');
@@ -49,6 +47,7 @@ export default function Jogo(): React.JSX.Element {
     setNumeroSecreto(gerarNumeroSecreto());
     setHistorico([]);
     setPalpite('');
+    setVenceu(false);
   }
 
   return (
@@ -58,15 +57,34 @@ export default function Jogo(): React.JSX.Element {
       </TouchableOpacity>
 
       <Text style={styles.title}>Jogo: Bulls and Cows</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Digite 4 dígitos"
-        value={palpite}
-        onChangeText={setPalpite}
-        keyboardType="numeric"
-        maxLength={4}
-      />
-      <Button title="Verificar" onPress={verificarPalpite} />
+
+      {!venceu && (
+        <>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite 4 dígitos"
+            value={palpite}
+            onChangeText={setPalpite}
+            keyboardType="numeric"
+            maxLength={4}
+            placeholderTextColor="#aaa"
+          />
+
+          <TouchableOpacity onPress={verificarPalpite} style={styles.verifyButton}>
+            <Text style={styles.verifyButtonText}>Verificar</Text>
+          </TouchableOpacity>
+        </>
+      )}
+
+      {venceu && (
+        <View style={styles.resultadoContainer}>
+          <Text style={styles.parabens}>🎉 Parabéns! Você acertou! 🎉</Text>
+          <TouchableOpacity onPress={reiniciarJogo} style={styles.reiniciarButton}>
+            <Text style={styles.verifyButtonText}>Jogar Novamente</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
       <View style={styles.historico}>
         {historico.map((linha, index) => (
           <Text key={index} style={styles.historicoItem}>{linha}</Text>
@@ -80,7 +98,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    backgroundColor: '#fff',
+    backgroundColor: '#343E54',
   },
   backButton: {
     marginBottom: 16,
@@ -95,23 +113,61 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   title: {
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 16,
+    marginBottom: 24,
+    textAlign: 'center',
+    color: '#fff',
   },
   input: {
+    width: '50%',
+    alignSelf: 'center',
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 8,
     padding: 12,
     marginBottom: 12,
     fontSize: 18,
+    backgroundColor: '#fff',
+    color: '#000',
+  },
+  verifyButton: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 10,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    alignSelf: 'center',
+    marginBottom: 16,
+  },
+  verifyButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   historico: {
     marginTop: 20,
+    alignItems: 'center',
   },
   historicoItem: {
     fontSize: 16,
+    color: '#fff',
     marginBottom: 4,
+  },
+  resultadoContainer: {
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  parabens: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#00FFAA',
+    textAlign: 'center',
+    marginBottom: 16,
+  },
+  reiniciarButton: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 10,
+    paddingHorizontal: 24,
+    borderRadius: 8,
   },
 });
