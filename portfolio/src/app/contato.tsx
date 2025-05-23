@@ -16,7 +16,7 @@ export default function Contato(): React.JSX.Element {
 
       <Text style={styles.text}>Entre em contato por e-mail:</Text>
       <TouchableOpacity onPress={abrirEmail}>
-        <Text style={styles.link}>eduardo.rocha@email.com</Text>
+        <Text style={styles.link}>eduardoalxdrocha@gmail.com</Text>
       </TouchableOpacity>
 
       <Text style={[styles.text, { marginTop: 24 }]}>Ou acesse meu GitHub:</Text>

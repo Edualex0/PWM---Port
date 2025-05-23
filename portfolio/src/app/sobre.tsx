@@ -5,14 +5,14 @@ export default function Sobre(): React.JSX.Element {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sobre Eduardo Rocha</Text>
-      <Text style={styles.text}>
-        Estudante do 5º período de Ciência da Computação, apaixonado por tecnologia e inovação.{"\n\n"}
-        Já estagiei em um colégio municipal, ensinando crianças sobre robótica.{"\n\n"}
-        Atualmente trabalho numa corretora de seguros, fazendo manutenção nos computadores e auxiliando outros colaboradores com problemas técnicos.
-      </Text>
+      <Text style={styles.text}>• Sistema de Irrigação Automatizado com Arduino</Text>
+      <Text style={styles.text}>• Aplicativo de Portfólio em React Native</Text>
+      <Text style={styles.text}>• Website Pessoal com HTML, CSS e JS</Text>
     </View>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
