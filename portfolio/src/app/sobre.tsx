@@ -46,14 +46,14 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#fff',
     marginBottom: 16,
     textAlign: 'center',
   },
   text: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#fff',
     lineHeight: 24,
     textAlign: 'center',
