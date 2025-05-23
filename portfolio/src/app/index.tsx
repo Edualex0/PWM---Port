@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#2E2E2E',
   },
   image: {
     width: 150,
@@ -55,22 +55,23 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 32,
     textAlign: 'center',
+    color: '#fff',
   },
   nav: {
     gap: 12,
     alignItems: 'center',
   },
   navButton: {
-    backgroundColor: '#007AFF',
-    paddingVertical: 12,
-    paddingHorizontal: 24,
+    backgroundColor: '#343E54',
+    paddingVertical: 18,
+    paddingHorizontal: 36,
     borderRadius: 8,
-    minWidth: 180,
+    minWidth: 270,
     alignItems: 'center',
   },
   navText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: '500',
   },
 });
