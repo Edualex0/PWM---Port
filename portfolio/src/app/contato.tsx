@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   backText: {
-    fontSize: 14, // mantém pequeno
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#fff',
   },
@@ -61,13 +61,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 32, // título maior
+    fontSize: 32, 
     fontWeight: 'bold',
     marginBottom: 16,
     color: '#fff',
   },
   text: {
-    fontSize: 20, // textos maiores
+    fontSize: 20, 
     textAlign: 'center',
     color: '#fff',
   },
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   link: {
-    fontSize: 20, // links maiores também
+    fontSize: 20, 
     color: '#4EA8DE',
     textDecorationLine: 'underline',
   },
