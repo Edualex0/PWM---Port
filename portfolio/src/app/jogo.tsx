@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    backgroundColor: '#343E54',
+    backgroundColor: '#2E2E2E',
   },
   backButton: {
     marginBottom: 16,
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   verifyButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#343E54',
     paddingVertical: 10,
     paddingHorizontal: 24,
     borderRadius: 8,
