@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function Jogo(): React.JSX.Element {
   const [palpite, setPalpite] = React.useState('');
   const [historico, setHistorico] = React.useState<string[]>([]);
   const [numeroSecreto, setNumeroSecreto] = React.useState(gerarNumeroSecreto());
+  const router = useRouter();
 
   function gerarNumeroSecreto(): string {
     let digitos = new Set<number>();
@@ -51,6 +53,10 @@ export default function Jogo(): React.JSX.Element {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+        <Text style={styles.backText}>← Voltar</Text>
+      </TouchableOpacity>
+
       <Text style={styles.title}>Jogo: Bulls and Cows</Text>
       <TextInput
         style={styles.input}
@@ -75,6 +81,18 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     backgroundColor: '#fff',
+  },
+  backButton: {
+    marginBottom: 16,
+    alignSelf: 'flex-start',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: '#ccc',
+    borderRadius: 6,
+  },
+  backText: {
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   title: {
     fontSize: 20,
